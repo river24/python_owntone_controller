@@ -1,0 +1,14 @@
+[Unit]
+Description=FiiO KB1K for Owntone
+After=owntone.service
+
+[Service]
+Type=simple
+WorkingDirectory=${ROOT_DIR}
+StandardOutput=null
+StandardError=journal
+ExecStart=${ROOT_DIR}/scripts/systemd.bash
+User=${USER}
+
+[Install]
+WantedBy=multi-user.target
