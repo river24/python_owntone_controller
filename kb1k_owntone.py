@@ -98,7 +98,7 @@ async def event_handler(queue: asyncio.Queue):
             if not path:
                 continue
             async with httpx.AsyncClient() as client:
-                r = await client.put(f"{API_SCHEMA}://{API_HOST}{path}")
+                _ = await client.put(f"{API_SCHEMA}://{API_HOST}{path}")
             (
                 _state,
                 _volume,
