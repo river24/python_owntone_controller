@@ -68,7 +68,6 @@ async def event_handler(queue: asyncio.Queue):
         if _state and _volume:
             state = _state
             volume = _volume
-            unmute = volume
         else:
             await asyncio.sleep(5)
 
@@ -80,11 +79,21 @@ async def event_handler(queue: asyncio.Queue):
                 continue
             player_event = EVENT_MAPPING[event.code]
             if player_event == "mute":
-                if volume == 0:
+                if volume == 0 and unmute:
                     volume = unmute
+                    unmute = None
                 else:
                     unmute = volume
                     volume = 0
+            elif player_event in ["volDown", "volUp"]:
+                if unmute:
+                    player_event = "mute"  # override
+                    volume = unmute
+                    if player_event == "volDown" and volume > 0:
+                        volume -= 1
+                    elif player_event == "volUp" and volume < 100:
+                        volume += 1
+                    unmute = None
             path = generate_control_path(player_event, state, volume)
             if not path:
                 continue
