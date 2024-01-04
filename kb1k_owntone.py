@@ -7,7 +7,7 @@ import httpx
 
 
 TARGET_DEVICE_NAME = "SayoDevice FiiO KB1 Keyboard"
-API_SCHEMA = "http"
+API_SCHEME = "http"
 API_HOST = "127.0.0.1:3689"
 QUEUE_TIMEOUT = 5.0
 
@@ -45,7 +45,7 @@ def generate_control_path(player_event, state, volume):
 async def get_status():
     try:
         async with httpx.AsyncClient() as client:
-            r = await client.get(f"{API_SCHEMA}://{API_HOST}/api/player")
+            r = await client.get(f"{API_SCHEME}://{API_HOST}/api/player")
     except Exception as e:
         logging.error(e)
         return None, None
@@ -98,7 +98,7 @@ async def event_handler(queue: asyncio.Queue):
             if not path:
                 continue
             async with httpx.AsyncClient() as client:
-                _ = await client.put(f"{API_SCHEMA}://{API_HOST}{path}")
+                _ = await client.put(f"{API_SCHEME}://{API_HOST}{path}")
             (
                 _state,
                 _volume,
