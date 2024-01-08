@@ -6,5 +6,5 @@ ROOT_DIR=${PARENT_DIR}
 
 cd ${ROOT_DIR}
 source ${ROOT_DIR}/venv/bin/activate
-python3 kb1k_owntone.py
+python3 owntone_controller.py
 

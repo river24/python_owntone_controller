@@ -1,6 +1,6 @@
 #!/bin/bash
 
-SERVICE_NAME="kb1k_owntone"
+SERVICE_NAME="python_owntone_controller"
 
 # PATH設定
 PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
