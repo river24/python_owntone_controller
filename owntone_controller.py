@@ -22,7 +22,7 @@ DEFAULT_CONFIG = {
         114: "volDown",
         115: "volUp",
         113: "mute",
-    }
+    },
 }
 
 
