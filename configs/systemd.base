@@ -1,5 +1,5 @@
 [Unit]
-Description=FiiO KB1K for Owntone
+Description=Python Owntone Controller
 After=owntone.service
 
 [Service]
