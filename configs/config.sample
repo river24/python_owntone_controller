@@ -1,0 +1,10 @@
+api_scheme: http
+api_host: "127.0.0.1:3689"
+device_name: "SayoDevice FiiO KB1 Keyboard"
+event_mapping:
+  165: prev
+  164: play
+  163: next
+  114: volDown
+  115: volUp
+  113: mute
