@@ -16,7 +16,8 @@ DEFAULT_CONFIG = {
     "api_host": "127.0.0.1:3689",
     "device_name": "SayoDevice FiiO KB1 Keyboard",
     "event_mapping": {
-        165: "prev", 164: "play",
+        165: "prev",
+        164: "play",
         163: "next",
         114: "volDown",
         115: "volUp",
@@ -49,7 +50,9 @@ def generate_control_path(player_event, state, volume):
 async def get_status(config: Dict):
     try:
         async with httpx.AsyncClient() as client:
-            r = await client.get(f"{config['api_scheme']}://{config['api_host']}/api/player")
+            r = await client.get(
+                f"{config['api_scheme']}://{config['api_host']}/api/player"
+            )
     except Exception as e:
         logging.error(e)
         return None, None
@@ -102,7 +105,9 @@ async def event_handler(queue: asyncio.Queue, config: Dict):
             if not path:
                 continue
             async with httpx.AsyncClient() as client:
-                _ = await client.put(f"{config['api_scheme']}://{config['api_host']}{path}")
+                _ = await client.put(
+                    f"{config['api_scheme']}://{config['api_host']}{path}"
+                )
             (
                 _state,
                 _volume,
