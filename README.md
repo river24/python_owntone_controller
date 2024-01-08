@@ -7,6 +7,12 @@
 Currently, it supports the following input devices:
 
 - [FiiO KB1K](https://fiio.com/productinfo/950623.html)
+    - Left Button : Previous Song
+    - Center button : Toggle for Play / Pause
+    - Right Button : Next Song
+    - Dial Counterclockwise : Volume Down
+    - Dial Clockwise : Volume Up
+    - Dial Button : Toggle for Mute
 
 ## How to Use
 
