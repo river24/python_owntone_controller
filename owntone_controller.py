@@ -174,7 +174,7 @@ def load_config():
                     config[key] = loaded_config[key]
     except Exception as e:
         logging.error(f"Failed to load config from {config_file}: {e}")
-        logging.error(f"Use 'DEFAULT_CONFIG'")
+        logging.error("Use 'DEFAULT_CONFIG'")
         config = DEFAULT_CONFIG.copy()
     return config
 
